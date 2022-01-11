@@ -9,8 +9,8 @@ import Products from "../components/Products";
 const ProductList = () => {
   return (
     <Container>
-      <Announcement />
       <Navbar />
+      <Announcement />
       <Title> Dresses</Title>
       <FilterContainer>
         <Filter>
