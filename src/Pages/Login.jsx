@@ -61,7 +61,7 @@ const Button = styled.button`
   background-color: teal;
   color: white;
   cursor: pointer;
-  mb10px
+  margin-bottom: 10px;
 `;
 const Link = styled.a`
   margin: 5px 0px;
