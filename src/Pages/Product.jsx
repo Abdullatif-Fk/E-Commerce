@@ -9,6 +9,8 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { mobile } from "../responsive";
 import { useLocation } from "react-router-dom";
 import { publicRequest } from "../requestMethods";
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 const Product = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
@@ -16,6 +18,8 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
+  const dispatch = useDispatch();
+
   const handleQuantity = (type) => {
     if (type === "dec") {
       quantity > 1 && setQuantity(quantity - 1);
@@ -23,7 +27,6 @@ const Product = () => {
       setQuantity(quantity + 1);
     }
   };
-  const handleClick = () => {};
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -35,6 +38,10 @@ const Product = () => {
     };
     getProduct();
   }, [id]);
+  const handleClick = () => {
+    dispatch(addProduct({ ...product, quantity, color, size }));
+  };
+
   return (
     <Container>
       <Navbar />

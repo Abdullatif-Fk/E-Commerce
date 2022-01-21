@@ -30,7 +30,7 @@ const Products = ({ category, filters, sort }) => {
           )
         )
       );
-    console.log(filtredProducts);
+    // console.log(filtredProducts);
   }, [products, category, filters]);
   useEffect(() => {
     if (sort === "newest") {
